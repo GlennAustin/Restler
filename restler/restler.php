@@ -202,7 +202,7 @@ class Restler
         $this->production_mode = $production_mode;
         $this->cache_dir = getcwd();
         $this->base_dir = RESTLER_PATH;
-        if (isset(Restler::$current) && (Restler::$current != NIL)) {
+        if (isset(Restler::$current) && (Restler::$current != NULL)) {
     		throw new RestException(500);
     	}
     	Restler::$current = $this;
@@ -217,7 +217,7 @@ class Restler
     	if (Restler::$current != $this) {
     		throw new RestException(500);
     	}
-    	Restler::$current = NIL;
+    	Restler::$current = NULL;
         if ($this->production_mode && !($this->cached)) {
             $this->saveCache();
         }
